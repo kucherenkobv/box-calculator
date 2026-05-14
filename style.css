@@ -2,17 +2,73 @@
     --main: rgb(255, 98, 47);
     --main-dark: rgb(200, 72, 32);
     --main-soft: rgba(242, 60, 50, 0.12);
+
     --text-muted: rgb(146, 157, 172);
     --text-main: rgb(38, 43, 50);
+
+    /* ДОБАВЛЕНО */
+    --pack: rgb(64, 142, 255);
+    --pack-soft: rgba(64, 142, 255, 0.10);
+
+    --box-soft: rgba(255, 98, 47, 0.08);
+    --box-border: rgba(255, 98, 47, 0.18);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    max-width: 420px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 0;
+    padding: 16px;
     background: #f7f7f7;
-     color: var(--text-main); /* 👈 основной цвет текста */
+    color: var(--text-main);
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ===================== */
+/* ЧАСЫ */
+/* ===================== */
+
+.clock-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+#clock {
+    text-align: center;
+}
+
+.clock-time {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--main);
+    letter-spacing: 2px;
+}
+
+.clock-date {
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ===================== */
+/* ФОРМА */
+/* ===================== */
+
+.form-card {
+    width: 420px;
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
 }
 
 h1 {
@@ -21,7 +77,23 @@ h1 {
     color: var(--text-main);
 }
 
-/* форма */
+.warning-text {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--main);
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
 .inputs {
     display: flex;
     gap: 12px;
@@ -29,7 +101,6 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* карточки полей */
 .field {
     display: flex;
     flex-direction: column;
@@ -38,14 +109,12 @@ h1 {
     padding: 10px 8px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    transition: 0.2s;
 }
 
 .field:hover {
     box-shadow: 0 4px 14px var(--main-soft);
 }
 
-/* инпут */
 input {
     width: 100px;
     padding: 10px;
@@ -54,7 +123,6 @@ input {
     border: 1px solid #e5e5e5;
     border-radius: 10px;
     outline: none;
-    transition: 0.2s;
 }
 
 input:focus {
@@ -62,15 +130,12 @@ input:focus {
     box-shadow: 0 0 0 3px var(--main-soft);
 }
 
-/* подписи */
 .label {
     font-size: 11px;
     margin-top: 6px;
     color: var(--text-muted);
-    text-align: center;
 }
 
-/* кнопка */
 button {
     width: 100%;
     padding: 12px;
@@ -93,7 +158,6 @@ button:active {
     transform: translateY(0);
 }
 
-/* результат */
 #result {
     margin-top: 20px;
     padding: 15px;
@@ -102,87 +166,102 @@ button:active {
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
 }
 
-.form-title {
-    text-align: center;
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-    letter-spacing: 0.3px;
-}
-
-.warning-text {
-    margin-top: 6px;
-    margin-bottom: 12px;
-    text-align: center;
-    font-size: 14px;
-    color: var(--main);
-    opacity: 0.9;
-    line-height: 1.3;
-}
-
-
-
-
-
+/* ===================== */
+/* ПАКЕТЫ + КОРОБКИ БЛОКИ */
+/* ===================== */
 
 .boxes-info {
-    margin-top: 25px;
     padding: 15px;
-    background: white;
-    border-radius: 12px;
+    border-radius: 18px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+}
+
+/* ПАКЕТЫ */
+.boxes-info.packages {
+    background: var(--pack-soft);
+    border: 1px solid rgba(64, 142, 255, 0.25);
+}
+
+/* КОРОБКИ */
+.boxes-info.boxes {
+    background: var(--box-soft);
+    border: 1px solid var(--box-border);
 }
 
 .boxes-title {
     text-align: center;
     font-weight: bold;
-    color: var(--main);
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     letter-spacing: 1px;
+    font-size: 18px;
 }
 
-/* 👇 СЕТКА 3 КОЛОНКИ */
+.boxes-info.packages .boxes-title {
+    color: var(--pack);
+}
+
+.boxes-info.boxes .boxes-title {
+    color: var(--main);
+}
+
+/* ===================== */
+/* КАРТОЧКИ */
+/* ===================== */
+
 .boxes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
 }
 
-/* карточка */
 .box-card {
+    width: 120px;
     border: 1px solid #eee;
-    width: max-content;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 14px;
+    padding: 12px;
     text-align: center;
-    transition: 0.2s;
     background: #fff;
+    flex: 0 0 auto;
+    transition: 0.2s;
 }
 
 .box-card:hover {
-    border-color: var(--main);
-    box-shadow: 0 4px 12px rgba(242, 60, 47, 0.15);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* текст */
+/* ПАКЕТЫ — СИНИЕ КАРТОЧКИ */
+.boxes-info.packages .box-card {
+    border: 1px solid rgba(64, 142, 255, 0.25);
+}
+
+/* КОРОБКИ — ОРАНЖЕВЫЕ */
+.boxes-info.boxes .box-card {
+    border: 1px solid rgba(255, 98, 47, 0.18);
+}
+
 .box-name {
     font-weight: bold;
-    color: var(--main);
     font-size: 16px;
+    color: var(--main);
 }
 
-.box-name span{
+.boxes-info.packages .box-name {
+    color: var(--pack);
+}
+
+.box-name span {
     color: var(--text-main);
-    font-weight: bold;
     font-size: 11px;
 }
 
 .box-type {
     font-size: 11px;
     font-weight: bold;
-    color: var(--text-main);
     margin-top: 7px;
+    color: var(--text-main);
 }
 
 .box-size {
@@ -197,7 +276,76 @@ button:active {
     color: var(--text-muted);
 }
 
-.break {
-    grid-column: 1 / -1; /* 👈 ломает строку */
-    height: 0;
+/* ===================== */
+/* 30 КГ ГРУППА */
+/* ===================== */
+
+.box-group {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 16px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* усиленный стиль */
+.box-group {
+    border: 1px solid rgba(255, 98, 47, 0.35);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 98, 47, 0.08),
+        rgba(255, 98, 47, 0.03)
+    );
+}
+
+.group-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--main);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+
+.group-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ===================== */
+/* РЯД */
+/* ===================== */
+
+.boxes-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* ===================== */
+/* АДАПТИВ */
+/* ===================== */
+
+@media (max-width: 600px) {
+
+    .form-card {
+        width: 100%;
+    }
+
+    .inputs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
+        max-width: 240px;
+    }
+
+    .box-card {
+        width: 100%;
+        max-width: 160px;
+    }
 }
