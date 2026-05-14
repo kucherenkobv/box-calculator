@@ -1,0 +1,202 @@
+:root {
+    --main: rgb(255, 98, 47);
+    --main-dark: rgb(200, 72, 32);
+    --main-soft: rgba(242, 60, 50, 0.12);
+    --text-muted: rgb(146, 157, 172);
+    --text-main: rgb(38, 43, 50);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f7f7f7;
+     color: var(--text-main); /* 👈 основной цвет текста */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+/* форма */
+.inputs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* карточки полей */
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px 8px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    transition: 0.2s;
+}
+
+.field:hover {
+    box-shadow: 0 4px 14px var(--main-soft);
+}
+
+/* инпут */
+input {
+    width: 100px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: var(--main);
+    box-shadow: 0 0 0 3px var(--main-soft);
+}
+
+/* подписи */
+.label {
+    font-size: 11px;
+    margin-top: 6px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* кнопка */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background: var(--main);
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: var(--main-dark);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* результат */
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.form-title {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+}
+
+.warning-text {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--main);
+    opacity: 0.9;
+    line-height: 1.3;
+}
+
+
+
+
+
+
+.boxes-info {
+    margin-top: 25px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.boxes-title {
+    text-align: center;
+    font-weight: bold;
+    color: var(--main);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* 👇 СЕТКА 3 КОЛОНКИ */
+.boxes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* карточка */
+.box-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.2s;
+    background: #fff;
+}
+
+.box-card:hover {
+    border-color: var(--main);
+    box-shadow: 0 4px 12px rgba(242, 60, 47, 0.15);
+    transform: translateY(-2px);
+}
+
+/* текст */
+.box-name {
+    font-weight: bold;
+    color: var(--main);
+    font-size: 16px;
+}
+
+.box-name span{
+    color: var(--text-main);
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.box-type {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-top: 7px;
+}
+
+.box-size {
+    font-size: 12px;
+    margin-top: 10px;
+    color: var(--text-main);
+}
+
+.box-cut {
+    font-size: 12px;
+    margin-top: 4px;
+    color: var(--text-muted);
+}
+
+.break {
+    grid-column: 1 / -1; /* 👈 ломает строку */
+    height: 0;
+}

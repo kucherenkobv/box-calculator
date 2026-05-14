@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПІДБІР КОРОБКИ</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>ПІДБІР КОРОБКИ</h1>
+
+<div class="warning-text">
+    Габарити відправлення не повинні перевищувати:<br> довжина: 100см, ширина: 50см, висота: 50см
+</div>
+<div class="form-title">Введіть параметри відправлення</div>
+<div class="inputs">
+
+    <div class="field">
+        <input type="number" id="length">
+        <div class="label">ДОВЖИНА (см)</div>
+    </div>
+
+    <div class="field">
+        <input type="number" id="width">
+        <div class="label">ШИРИНА (см)</div>
+    </div>
+
+    <div class="field">
+        <input type="number" id="height">
+        <div class="label">ВИСОТА (см)</div>
+    </div>
+
+</div>
+
+<button onclick="findBox()">РОЗРАХУВАТИ</button>
+
+<div id="result"></div>
+
+<div class="boxes-info">
+
+    <div class="boxes-title">КОРОБКИ</div>
+
+    <div class="boxes-grid">
+
+        <div class="boxes-grid">
+
+    <!-- 1 линия: до 20 кг -->
+    <div class="box-card">
+        <div class="box-name">5 КГ <span>[ 5 ]</span></div>
+        <div class="box-type">ПРЯМОКУТНА</div>
+        <div class="box-size">40×24×20</div>
+        <div class="box-cut">13 | 8</div>
+    </div>
+
+    <div class="box-card">
+        <div class="box-name">10 КГ</div>
+        <div class="box-type">КВАДРАТНА</div>
+        <div class="box-size">40×34×28.5</div>
+        <div class="box-cut">20 | 14 | 8.5</div>
+    </div>
+
+    <div class="box-card">
+        <div class="box-name">15 КГ</div>
+        <div class="box-type">ПРЯМОКУТНА</div>
+        <div class="box-size">60×35×28.5</div>
+        <div class="box-cut">19 | 13 | 9</div>
+    </div>
+
+    <div class="box-card">
+        <div class="box-name">20 КГ</div>
+        <div class="box-type">КВАДРАТНА</div>
+        <div class="box-size">47×40×42</div>
+        <div class="box-cut">31 | 21 | 10</div>
+    </div>
+
+    <!-- 👇 перенос строки через разделитель -->
+    <div class="break"></div>
+
+    <!-- 2 линия: 30 кг -->
+    <div class="box-card">
+        <div class="box-name">30 КГ</div>
+        <div class="box-type">ПРЯМОКУТНА</div>
+        <div class="box-size">70×40×42</div>
+        <div class="box-cut">28 | 14</div>
+    </div>
+
+    <div class="box-card">
+        <div class="box-name">30 КГ</div>
+        <div class="box-type">КВАДРАТНА</div>
+        <div class="box-size">50×50×48</div>
+        <div class="box-cut">32 | 16</div>
+    </div>
+
+    <div class="box-card">
+        <div class="box-name">30 КГ</div>
+        <div class="box-type">ДОВГА</div>
+        <div class="box-size">100×40×30</div>
+        <div class="box-cut">20 | 10</div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
