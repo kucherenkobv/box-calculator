@@ -190,12 +190,15 @@ function findBox() {
             altBox.code !== foundBox.code
         ) {    
             altText = `
+                <br>
                 <hr>
+                <br>
                 <div style="color: #2e7d32; font-weight: bold;">
                     Альтернатива без допуску:
                 </div>
+                <br>
                 <div>
-                    [${altBox.code}] ${altBox.name}<br>
+                    <div style="font-weight: bold;">[${altBox.code}] ${altBox.name}<br></div>
                     Розміри: ${altBox.length} × ${altBox.width} × ${altBox.height} см
                     ${altSelectedHeight !== altBox.height ? `<br><span style="color: #1565c0; font-weight: bold;">✂ Підрізка: до ${altSelectedHeight} см</span>` : ""}
                 </div>
@@ -219,6 +222,48 @@ function findBox() {
         result.innerHTML = `Підходящу коробку не знайдено`;
     }
 }
+
+function updateClock() {
+
+    const now = new Date();
+
+    let hours = String(now.getHours()).padStart(2, '0');
+    let minutes = String(now.getMinutes()).padStart(2, '0');
+    let seconds = String(now.getSeconds()).padStart(2, '0');
+
+    const months = [
+        "січня",
+        "лютого",
+        "березня",
+        "квітня",
+        "травня",
+        "червня",
+        "липня",
+        "серпня",
+        "вересня",
+        "жовтня",
+        "листопада",
+        "грудня"
+    ];
+
+    const day = now.getDate();
+    const month = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    document.getElementById("clock").innerHTML = `
+        <div class="clock-time">
+            ${hours}:${minutes}:${seconds}
+        </div>
+
+        <div class="clock-date">
+            ${day} ${month}, ${year}
+        </div>
+    `;
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
 
 document.querySelectorAll("input").forEach(input => {
     input.addEventListener("keydown", function(event) {
